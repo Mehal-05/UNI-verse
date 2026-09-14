@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Applications - UNI-verse</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="navbar">
+    <h2>UNI-verse</h2>
+    <div>
+        <a href="/officer">Dashboard</a>
+        <a href="/logout">Logout</a>
+    </div>
+</div>
+
+<div class="container">
+
+    <h1>Student Applications</h1>
+
+    <table>
+        <tr>
+            <th>Student</th>
+            <th>Registration No</th>
+            <th>Company</th>
+            <th>Role</th>
+            <th>Status</th>
+            <th>Update</th>
+        </tr>
+
+        {% for application in applications %}
+        <tr>
+            <td>{{ application.name }}</td>
+            <td>{{ application.registration_no }}</td>
+            <td>{{ application.company_name }}</td>
+            <td>{{ application.job_role }}</td>
+            <td>{{ application.status }}</td>
+            <td>
+                <form method="POST"
+                      action="/officer/update_application/{{ application.application_id }}">
+
+                    <select name="status">
+                        <option value="Applied">Applied</option>
+                        <option value="Shortlisted">Shortlisted</option>
+                        <option value="Rejected">Rejected</option>
+                        <option value="Selected">Selected</option>
+                    </select>
+
+                    <button type="submit">Update</button>
+
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+</div>
+
+</body>
+</html>

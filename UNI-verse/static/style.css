@@ -1,0 +1,80 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: #f4f6f8;
+}
+
+.navbar {
+    background: #172554;
+    color: white;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+}
+
+.container {
+    padding: 30px;
+}
+
+.login-box {
+    width: 350px;
+    margin: 100px auto;
+    background: white;
+    padding: 30px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+input {
+    display: block;
+    width: 90%;
+    padding: 12px;
+    margin: 15px auto;
+}
+
+button {
+    padding: 12px 30px;
+    background: #172554;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+}
+
+th, td {
+    padding: 15px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+th {
+    background: #172554;
+    color: white;
+}
+
+.profile {
+    background: white;
+    padding: 20px;
+    margin-bottom: 30px;
+}
+select {
+    display: block;
+    width: 90%;
+    padding: 12px;
+    margin: 15px auto;
+}
+
+label {
+    display: block;
+    margin: 10px;
+}

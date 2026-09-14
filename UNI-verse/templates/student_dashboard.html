@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>UNI-verse Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="navbar">
+    <h2>UNI-verse</h2>
+    <div>
+        <a href="/applications">My Applications</a>
+        <a href="/logout">Logout</a>
+    </div>
+</div>
+
+<div class="container">
+
+    <h1>Welcome, {{ student.name }}</h1>
+
+    <div class="profile">
+        <p><b>Registration No:</b> {{ student.registration_no }}</p>
+        <p><b>CGPA:</b> {{ student.cgpa }}</p>
+        <p><b>Backlogs:</b> {{ student.backlogs }}</p>
+        <p><b>Graduation Year:</b> {{ student.graduation_year }}</p>
+    </div>
+
+    <h2>Companies You Are Eligible For</h2>
+
+    <table>
+        <tr>
+            <th>Company</th>
+            <th>Job Role</th>
+            <th>Package</th>
+            <th>Drive Date</th>
+            <th>Action</th>
+        </tr>
+
+        {% for company in companies %}
+        <tr>
+            <td>{{ company.company_name }}</td>
+            <td>{{ company.job_role }}</td>
+            <td>{{ company.package_lpa }} LPA</td>
+            <td>{{ company.drive_date }}</td>
+            <td>
+                <form method="POST"
+                      action="/apply/{{ company.drive_id }}">
+                    <button type="submit">Apply</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+</div>
+
+</body>
+</html>

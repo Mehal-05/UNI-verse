@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Applications - UNI-verse</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="navbar">
+    <h2>UNI-verse</h2>
+    <a href="/student">Dashboard</a>
+</div>
+
+<div class="container">
+
+    <h1>My Applications</h1>
+
+    <table>
+        <tr>
+            <th>Company</th>
+            <th>Role</th>
+            <th>Package</th>
+            <th>Drive Date</th>
+            <th>Status</th>
+            <th>Applied Date</th>
+        </tr>
+
+        {% for application in applications %}
+        <tr>
+            <td>{{ application.company_name }}</td>
+            <td>{{ application.job_role }}</td>
+            <td>{{ application.package_lpa }} LPA</td>
+            <td>{{ application.drive_date }}</td>
+            <td>{{ application.status }}</td>
+            <td>{{ application.applied_date }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+</div>
+
+</body>
+</html>
